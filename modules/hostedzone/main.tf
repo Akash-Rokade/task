@@ -17,5 +17,9 @@ aws route53 disassociate-vpc-from-hosted-zone --hosted-zone-id=${aws_route53_zon
 aws ec2 delete-vpc --vpc-id ${var.primaryvpc}
 EOT
 }
+ triggers = {
+    always_run = timestamp()
+  }
+
 depends_on = [aws_route53_zone.hostedzone]
 }
