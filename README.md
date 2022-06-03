@@ -1,5 +1,5 @@
 # task
-Terraform Task if you are not aligned with project :- We need to use terraform to do this. 
+Terraform Task  :- We need to use terraform to do this. 
 Create a module called private hosted zone, which accepts a input domain name.
 
 Create a first VPC. (only vpc, no need of subnets, RT, NATGW, IGW)
