@@ -11,15 +11,13 @@ https://releases.hashicorp.com/terraform/0.14.10/terraform_0.14.10_linux_amd64.z
       - "mv terraform /usr/local/bin/"
       - "ls -a"
       - "pwd"
-      - "terraform init"
-  pre_build:
-    commands:
-      - terraform -chdir=Terraform init -input=false
 
   build:
     commands:
-      - terraform -chdir=Terraform $TF_COMMAND_P -input=false -no-color
-
+      - terraform init
+      - terraform validate
+      - terraform fmt .
+     
   post_build:
     commands:
       - echo terraform $TF_COMMAND_P completed on `date`
