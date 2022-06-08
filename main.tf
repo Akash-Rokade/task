@@ -5,7 +5,8 @@ provider "aws" {
 
 variable "hostedzone" {
   type        = string
-  description = "enter hosted zone1 "
+  description = "hosted zone"
+  default= "Akash.com"
 }
 
 module "vpc" {
