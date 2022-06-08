@@ -16,3 +16,4 @@ phases:
       - terraform fmt -recursive
       - "terraform apply --auto-approve"
   
+  
