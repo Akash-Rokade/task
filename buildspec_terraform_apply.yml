@@ -11,8 +11,5 @@ phases:
 
   build:
     commands:
-      - terraform init
-      - terraform validate
-      - terraform fmt -recursive
       - terraform apply -auto-approve 
   
