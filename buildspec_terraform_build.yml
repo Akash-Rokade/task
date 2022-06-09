@@ -8,10 +8,18 @@ phases:
       - "wget https://releases.hashicorp.com/terraform/0.14.10/terraform_0.14.10_linux_amd64.zip"
       - "unzip terraform_0.14.10_linux_amd64.zip"
       - "mv terraform /usr/local/bin/"
+      - "curl -s https://raw.githubusercontent.com/terraform-linters/tflint/master/install_linux.sh | bash"
+      - "curl -sSLo ./terraform-docs.tar.gz https://terraform-docs.io/dl/v0.16.0/terraform-docs-v0.16.0-$(uname)-amd64.tar.gz"
+      - "tar -xzf terraform-docs.tar.gz"
+      - "chmod +x terraform-docs"
+      - "mv terraform-docs /usr/bin/terraform-docs"
 
   build:
     commands:
       - terraform init
-      - terraform validate
-      - terraform fmt -recursive 
+      - "tflint --init"
+      - "tflint"
+      - "terraform-docs markdown table ."
+      - "terraform validate"
+      - "terraform fmt -recursive"
   
